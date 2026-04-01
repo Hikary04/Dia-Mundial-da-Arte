@@ -169,6 +169,12 @@ section h2 {
     margin-bottom: 3rem;
 }
 
+#galeria h2 {
+    font-size: 4rem;
+    position: relative;
+    margin-bottom: 1rem;
+
+}
 
 .card,
 .card-destaque {
@@ -262,67 +268,87 @@ section h2 {
     font-size: 0.875rem;
 }
 
+/* CARROSSEL / GALERIA */
 
-.grid-galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.galeria-item {
-    position: relative;
-    aspect-ratio: 1;
-}
-
-.galeria-imagem {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 4px solid #D4A017;
-    background: transparent;
-    align-items: center;
-    justify-content: center;
+.carrossel {
     overflow: hidden;
+    width: 100%;
     position: relative;
-    transition: all 0.5s ease;
+    margin-top: 0;
+    padding: 50px 0; 
 }
 
-.galeria-imagem img {
+.track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 10s linear infinite;
+    overflow: visible;
+}
+
+.track .item {
+    position: relative;
+}
+
+.track .item:hover {
+    transform: scale(1.3) translateY(-10px);
+    z-index: 999;
+}
+
+
+
+/* looping */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* pausa no hover */
+.carrossel:hover .track {
+    animation-play-state: paused;
+}
+
+/* container do item */
+.track .item {
+    width: 200px;
+    height: 260px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* imagem ocupa tudo */
+.track .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-.galeria-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+/* zoom */
+.track .item:hover {
+    transform: scale(1.3) translateY(-10px);
+    z-index: 10;
 }
 
-.galeria-overlay span {
-    color: white;
-    font-size: 1.125rem;
-    font-weight: 600;
+/* escurece as outras */
+.carrossel:hover img {
+    filter: brightness(0.5);
 }
 
-.galeria-imagem:hover {
-    border-color: white;
-    box-shadow: 0 20px 40px rgba(212, 160, 23, 0.3);
+.carrossel img:hover {
+    filter: brightness(1);
 }
 
-.galeria-imagem:hover .galeria-overlay {
-    opacity: 1;
-}
+.carrossel {
+    padding-bottom: 50px;
+} 
 
 
+/* Video */
 .video {
     display: flex;
     gap: 20px;
@@ -330,6 +356,10 @@ section h2 {
     margin-top: 50px;
     align-items: flex-start;
     transition: 0.3s;
+}
+
+.video {
+    transform: translateY(-70px);
 }
 
 .video:hover .card-video {
@@ -431,8 +461,35 @@ section h2 {
     margin: 5px 0;
 }
 
+.rodape-instagram {
+    text-align: center;
+}
+
+.insta-texto {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: -4px;
+    color: white;
+}
+
+.rodape-instagram img {
+    width: 40px;
+    height: auto;
+    display: relative;
+    margin: 20px;
+}
+
+.rodape-instagram img:hover {
+    transform: scale(1.2);
+}
+
+.rodape-instagram a {
+    text-decoration: none;
+
+}
+
 .rodape-logo img {
-    height: 45px;
+    height: 55px;
     transition: 0.3s;
 }
 
@@ -445,6 +502,7 @@ section h2 {
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
 }
+
 
 .subtitulo-footer {
     color: rgba(255, 255, 255, 0.6);
