@@ -268,7 +268,7 @@ section h2 {
     font-size: 0.875rem;
 }
 
-/* CARROSSEL / GALERIA */
+
 
 .carrossel {
     overflow: hidden;
@@ -297,7 +297,7 @@ section h2 {
 
 
 
-/* looping */
+
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -307,12 +307,12 @@ section h2 {
     }
 }
 
-/* pausa no hover */
+
 .carrossel:hover .track {
     animation-play-state: paused;
 }
 
-/* container do item */
+
 .track .item {
     width: 200px;
     height: 260px;
@@ -321,14 +321,13 @@ section h2 {
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-/* imagem ocupa tudo */
 .track .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* zoom */
+
 .track .item:hover {
     transform: scale(1.3) translateY(-10px);
     z-index: 10;
@@ -347,8 +346,6 @@ section h2 {
     padding-bottom: 50px;
 } 
 
-
-/* Video */
 .video {
     display: flex;
     gap: 20px;
